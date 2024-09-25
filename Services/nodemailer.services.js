@@ -16,7 +16,7 @@ export const mail = (senderEmail, verificationString) => {
     })
 
     // Generate the password reset link
-    const resetLink = `https://urlfe.netlify.app/resetpage/${verificationString}`;
+    const resetLink = `https://urlshotener-frontend1.netlify.app/resetpage/${verificationString}`;
 
     // Email details
     const details = {
@@ -55,7 +55,7 @@ export const verifyMail = (senderEmail, verificationString) => {
     })
 
     // Generate the password reset link
-    const resetLink = `https://urlfe.netlify.app/activation/${verificationString}`;
+    const resetLink = `https://urlshotener-frontend1.netlify.app/activation/${verificationString}`;
 
     // Email details
     const details = {
