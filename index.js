@@ -24,7 +24,7 @@ app.use("/", shortUrlRoutes); // URL Shortener routes
 connectDB();
 
 // Start the Express server on the specified port or default to port 5000
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000, ip: "157.51.173.93/32";
 app.listen(PORT, () => {
     console.log(`App is listening on PORT ${PORT}`);
 });
