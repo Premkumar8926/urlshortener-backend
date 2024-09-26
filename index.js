@@ -1,26 +1,30 @@
-import express from "express"
-import cors from "cors"
-import dotenv from "dotenv"
-import connectDB from "./Database/DbConfig.js";
-import userRoutes from "./Routers/user.router.js"
-import ShortUrls from "./Routers/shortUrl.router.js";
+// Import necessary modules
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./Database/DbConfig.js"; // MongoDB connection file
+import userRoutes from "./Routers/user.router.js"; // User routes
+import shortUrlRoutes from "./Routers/shortUrl.router.js"; // URL shortener routes
 
-// Configure dotenv to load environment variables from a .env file
+// Load environment variables from .env file
 dotenv.config();
 
-// Create an Express application instance
+// Initialize Express app
 const app = express();
 
-app.use(cors()); // Use CORS middleware to allow cross-origin requests
+// Middleware
+app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Parse incoming JSON requests
 
-app.use("/api/user", userRoutes); // Define a route for user-related operations
-app.use("/",ShortUrls)
+// Define Routes
+app.use("/api/user", userRoutes); // User-related routes
+app.use("/", shortUrlRoutes); // URL Shortener routes
 
-connectDB(); // Establish connection to the database
+// Connect to MongoDB
+connectDB();
 
-
-// Start the server and listen on the port specified in the environment variable
-app.listen(process.env.PORT, () => {
-    console.log("App is listening on PORT", process.env.PORT);
-})
+// Start the Express server on the specified port or default to port 5000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`App is listening on PORT ${PORT}`);
+});
