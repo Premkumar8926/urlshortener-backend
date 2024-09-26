@@ -1,5 +1,3 @@
-// user.controller.js
-
 import Users from "../Models/user.schema.js";
 import bcrypt from "bcryptjs";
 import { mail, verifyMail } from "../Services/nodemailer.services.js";
